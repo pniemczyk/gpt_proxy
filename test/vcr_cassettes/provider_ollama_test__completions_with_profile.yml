@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:11434/api/chat
+    body:
+      encoding: UTF-8
+      string: '{"stream":false,"messages":[{"role":"system","content":"You are a translator.
+        For every message you receive, translate it into Polish or English based on
+        the source language.\nIf the message is in English, translate it into Polish.\n
+        If the message is in Polish, translate it into English.\nApply this rule to
+        each request, not just the first one.\nEven if the message is a question,
+        translate the text without answering it.\nDo not add any notes or additional
+        information, only return the translation itself.\nTranslate in a way that
+        sounds natural to a native speaker of the target language. Only return the
+        translation of the text; you don’t need to translate any code."},{"role":"user","content":"What
+        is the capital of France?"}],"model":"llama3.1:70b"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Oct 2024 22:24:52 GMT
+      Content-Length:
+      - '323'
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.1:70b","created_at":"2024-10-15T22:24:52.728746Z","message":{"role":"assistant","content":"Jaka
+        jest stolica Francji?"},"done_reason":"stop","done":true,"total_duration":7142418625,"load_duration":31691500,"prompt_eval_count":145,"prompt_eval_duration":6077825000,"eval_count":9,"eval_duration":1031256000}'
+  recorded_at: Tue, 15 Oct 2024 22:24:52 GMT
+recorded_with: VCR 6.3.1

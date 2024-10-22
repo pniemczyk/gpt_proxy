@@ -1,0 +1,8 @@
+= content_for :header do
+  = vc 'layout/header', title: "Edit #{profile.name}", details: profile.description.presence || 'Basic details of a provider' do |c|
+    = c.with_button do
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Back', url: profiles_path, icon: :back
+        - cmp.with_button title: 'Show', url: profile_path(profile), icon: :show
+.mt-4.px-4
+  == render "form", profile:

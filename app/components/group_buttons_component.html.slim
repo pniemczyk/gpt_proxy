@@ -1,0 +1,9 @@
+span.inline-block.whitespace-nowrap.text-right.w-full.text-sm.text-neutral-500.light:text-neutral-300
+  span.inline-flex.overflow-hidden.rounded-md.border.bg-white.shadow-sm
+    - buttons.each do |button|
+      - if button.http_method == :delete
+        = button_to button.url, method: :delete, class: "inline-block p-3 text-gray-700 hover:bg-gray-50 focus:relative", title: button.title, data: button.data
+          = vc :icon, name: button.icon, size: 4
+      - else
+        a.inline-block.p-3.text-gray-700.hover:bg-gray-50.focus:relative title=button.title href=button.url
+          = vc :icon, name: button.icon, size: 4

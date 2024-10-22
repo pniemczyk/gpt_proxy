@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"temperature":0.7,"messages":[{"role":"system","content":"You
+        are a translator. For every message you receive, translate it into Polish
+        or English based on the source language.\nIf the message is in English, translate
+        it into Polish.\n If the message is in Polish, translate it into English.\nApply
+        this rule to each request, not just the first one.\nEven if the message is
+        a question, translate the text without answering it.\nDo not add any notes
+        or additional information, only return the translation itself.\nTranslate
+        in a way that sounds natural to a native speaker of the target language. Only
+        return the translation of the text; you don’t need to translate any code."},{"role":"user","content":"What
+        is the capital of France?"},{"role":"assistant","content":"Jaka jest stolica
+        Francji?"},{"role":"user","content":"What is the capital of Poland?"}],"model":"llama3-8b-8192"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer gsk_QIZ
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 23:00:19 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Ratelimit-Limit-Requests:
+      - '14400'
+      X-Ratelimit-Limit-Tokens:
+      - '30000'
+      X-Ratelimit-Remaining-Requests:
+      - '14399'
+      X-Ratelimit-Remaining-Tokens:
+      - '29807'
+      X-Ratelimit-Reset-Requests:
+      - 6s
+      X-Ratelimit-Reset-Tokens:
+      - 386ms
+      X-Request-Id:
+      - req_01ja96jatcfz0sp5mhrhnhacz4
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Wn0lLSkLSQOR16XDB_IsWxgxSMVDRnkM7DUnLvZRccg-1729033219-1.0.1.1-Nv01.z9o4Qq84shk9SWqkvLFqe05wtDJOIALv6mkg10u4O_v1XF_qgbQrFfqI0L4Klmcm1BsBUagyFFKCknm5g;
+        path=/; expires=Tue, 15-Oct-24 23:30:19 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d336cb15e1a710c-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-b893c726-e51d-4d55-a173-8ba8e6181e51","object":"chat.completion","created":1729033218,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"Stolica
+        Polski to Warszawa."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.0024883759999999935,"prompt_tokens":170,"prompt_time":0.034805711,"completion_tokens":11,"completion_time":0.009166667,"total_tokens":181,"total_time":0.043972378},"system_fingerprint":"fp_af05557ca2","x_groq":{"id":"req_01ja96jatcfz0sp5mhrhnhacz4"}}
+
+        '
+  recorded_at: Tue, 15 Oct 2024 23:00:19 GMT
+recorded_with: VCR 6.3.1

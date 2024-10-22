@@ -1,0 +1,23 @@
+.mt-6.flex.space-y-4 data-controller="endpoint" data-action="click->endpoint#onCopy" class="#{full ? 'w-full flex-col' : ''}"
+  .flex.flex-col.space-y-3.bg-background-light.dark:bg-background-light.border.border-gray-200/70.light:border-white/10.rounded-xl.ring-2.ring-gray-100.light:ring-white/5.p-1 class="#{full ? 'w-full' : ''}"
+    .flex.items-center.space-x-2
+      .relative.flex-1.flex.gap-2.min-w-0.rounded-lg.items-center.cursor-pointer.p-1.5
+        - if label
+          .rounded-md.font-bold.px-2.py-0.5.text-sm.leading-5.uppercase.bg-gray-100.text-gray-800.text-xs.font-medium.inline-flex.items-center.rounded.light:bg-gray-700.light:text-gray-400.border.border-gray-500
+            = label
+          .w-px.h-4.bg-gray-200.light:bg-white/10
+        .rounded-md.font-bold.px-2.py-0.5.text-sm.leading-5.uppercase class="bg-#{color}-400/20 text-#{color}-700 light:bg-#{color}-400/20 light:text-#{color}-400"
+          = method_name
+        .w-px.h-4.bg-gray-200.light:bg-white/10
+        .group.flex.items-center.flex-1.gap-1.overflow-x-auto.font-mono.pr-2
+          .absolute.right-3.hidden.group-hover:block
+            = vc 'icon', name: :copy_text, size: 3, data: { endpoint: { target: 'defaultIcon' } }, classes: 'hover:opacity-50 cursor-pointer inline-block'
+            = vc 'icon', name: :copy_text_success, size: 3, data: { endpoint: { target: 'successIcon' } }, classes: 'hover:opacity-50 cursor-pointer inline-block hidden'
+          .text-sm.font-medium.text-gray-800.light:text-white.min-w-max class="#{full ? '' : 'pr-6'}"
+            - if show_with_host
+              = with_host
+            - else
+              = path
+            span.hidden data-endpoint-target="path"
+              = with_host
+      = child

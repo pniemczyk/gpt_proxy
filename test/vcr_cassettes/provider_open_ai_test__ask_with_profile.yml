@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"temperature":0.7,"model":"gpt-3.5-turbo","messages":[{"role":"system","content":"You
+        are a translator. For every message you receive, translate it into Polish
+        or English based on the source language.\nIf the message is in English, translate
+        it into Polish.\n If the message is in Polish, translate it into English.\nApply
+        this rule to each request, not just the first one.\nEven if the message is
+        a question, translate the text without answering it.\nTranslate in a way that
+        sounds natural to a native speaker of the target language. Only return the
+        translation of the text; you don’t need to translate any code."},{"role":"user","content":"What
+        is the capital of France?"}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer sk-proj-QhR
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 21:44:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-zdky37cnzqat2yago2gt51ih
+      Openai-Processing-Ms:
+      - '319'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '200000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '198833'
+      X-Ratelimit-Reset-Requests:
+      - 8.64s
+      X-Ratelimit-Reset-Tokens:
+      - 349ms
+      X-Request-Id:
+      - req_4036b74d41a60f75539ed6717051ac11
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=692.a.q6WvMPyfbLTbpFfm5l.k6g8YYovC_0cgcAw9A-1729028684-1.0.1.1-tGsmeNG8H0dwbaehqmH13E7qm8cxqR9ePhPvAw9CeCM6F.2qkzFN2wYut.9CDDqrG3x0pGXIXVDvwNug.TMpjA;
+        path=/; expires=Tue, 15-Oct-24 22:14:44 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=tpnoj3B0qHQyK322LC_FrBaObYcAlAhKmgP4AzpOZeY-1729028684396-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d32fdfa9c6ab329-PRG
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-AIjdMigK8QdRL9r0B5TXLFJmVX2bZ",
+          "object": "chat.completion",
+          "created": 1729028684,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Jaka jest stolica Francji?",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 126,
+            "completion_tokens": 9,
+            "total_tokens": 135,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+  recorded_at: Tue, 15 Oct 2024 21:44:44 GMT
+recorded_with: VCR 6.3.1

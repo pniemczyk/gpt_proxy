@@ -1,0 +1,14 @@
+= simple_form_for(singular_table_name) do |f|
+  = f.error_notification
+  - if f.object.errors[:base].present?
+    = f.error_notification message: f.object.errors[:base].to_sentence
+
+  .form-inputs
+    - attributes.each do |attribute|
+      - if attribute.reference?
+        = f.association attribute.name
+      - else
+        = f.input attribute.name
+
+  .form-actions
+    = f.button :submit

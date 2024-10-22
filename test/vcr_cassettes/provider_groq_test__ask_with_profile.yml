@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"temperature":0.7,"model":"llama3-8b-8192","messages":[{"role":"system","content":"You
+        are a translator. For every message you receive, translate it into Polish
+        or English based on the source language.\nIf the message is in English, translate
+        it into Polish.\n If the message is in Polish, translate it into English.\nApply
+        this rule to each request, not just the first one.\nEven if the message is
+        a question, translate the text without answering it.\nDo not add any notes
+        or additional information, only return the translation itself.\nTranslate
+        in a way that sounds natural to a native speaker of the target language. Only
+        return the translation of the text; you don’t need to translate any code."},{"role":"user","content":"What
+        is the capital of France?"}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer gsk_QIZ
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 23:52:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Ratelimit-Limit-Requests:
+      - '14400'
+      X-Ratelimit-Limit-Tokens:
+      - '30000'
+      X-Ratelimit-Remaining-Requests:
+      - '14399'
+      X-Ratelimit-Remaining-Tokens:
+      - '29830'
+      X-Ratelimit-Reset-Requests:
+      - 6s
+      X-Ratelimit-Reset-Tokens:
+      - 340ms
+      X-Request-Id:
+      - req_01ja99hh26f4dr7hxkz8fn5dhf
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=4pLcf23ZGCV5o_bMu6YRDE7a_RtsjuM255adTuXoLJI-1729036338-1.0.1.1-ucUC9jYLra3moR1G5IWzJvs680UaY3ZAa4OAxYPdfjqMn7QFZslKro1i.8S8l1hjQe1EtqAZkIe6dOAs1UpRCg;
+        path=/; expires=Wed, 16-Oct-24 00:22:18 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d33b8d97c37b383-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6ImNoYXRjbXBsLWVkYWE1MzUxLWZjNTMtNDljNy1hZmM3LWU2M2Q4YzNjYTY5NiIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbiIsImNyZWF0ZWQiOjE3MjkwMzYzMzgsIm1vZGVsIjoibGxhbWEzLThiLTgxOTIiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwibWVzc2FnZSI6eyJyb2xlIjoiYXNzaXN0YW50IiwiY29udGVudCI6IlN0b2xpY2EgRnJhbmNqaSB0byBQYXJ5xbwuIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoic3RvcCJ9XSwidXNhZ2UiOnsicXVldWVfdGltZSI6MC4wMTcwNDUyMTIwMDAwMDAwMDQsInByb21wdF90b2tlbnMiOjE0NSwicHJvbXB0X3RpbWUiOjAuMDE2MzgxNjA4LCJjb21wbGV0aW9uX3Rva2VucyI6MTEsImNvbXBsZXRpb25fdGltZSI6MC4wMDkxNjY2NjcsInRvdGFsX3Rva2VucyI6MTU2LCJ0b3RhbF90aW1lIjowLjAyNTU0ODI3NX0sInN5c3RlbV9maW5nZXJwcmludCI6ImZwX2FmMDU1NTdjYTIiLCJ4X2dyb3EiOnsiaWQiOiJyZXFfMDFqYTk5aGgyNmY0ZHI3aHhrejhmbjVkaGYifX0K
+  recorded_at: Tue, 15 Oct 2024 23:52:18 GMT
+recorded_with: VCR 6.3.1

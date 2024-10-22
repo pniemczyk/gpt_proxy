@@ -1,0 +1,10 @@
+.mt-4.border.border-gray-100.light:border-white/10.rounded-xl role="listitem" data-controller="collapse-box"
+  button.not-prose.text-sm.flex.flex-row.items-center.content-center.w-full.text-gray-600.hover:text-gray-900.light:text-gray-300.light:hover:text-gray-200.py-3.px-3.5.hover:bg-gray-50/50.light:hover:bg-white/5 class="rounded-t-[0.68rem] rounded-b-[0.68rem]" aria-collapsed=(collapsed ? 'true' : 'false') data-action="click->collapse-box#onToggle" data-collapse-box-target="button"
+    = vc 'icon', name: :chevron_down, hidden: !collapsed, data: { collapse: { box: { target: 'iconDown' } }, type: :down }
+    = vc 'icon', name: :chevron_up, hidden: collapsed, data: { collapse: { box: { target: 'iconUp' } }, type: :up }
+    .ml-3.leading-tight.text-left
+      p.m-0 data-title=title data-collapse-box-target='title'
+        = "#{collapsed ? 'Show' : 'Hide'} #{title}"
+
+  .px-2.border-t.border-gray-100.light:border-white/10.overflow-auto data-collapse-box-target="content" class=(collapsed ? 'hidden' : '') aria-collapsed=(collapsed ? 'true' : 'false')
+    = child if child

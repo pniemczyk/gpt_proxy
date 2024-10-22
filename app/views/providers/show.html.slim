@@ -1,0 +1,193 @@
+= content_for :header do
+  = vc 'layout/header', title: provider.name, details: 'Basic details of a provider' do |c|
+    = c.with_button do
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Back', url: providers_path, icon: 'back'
+        - cmp.with_button title: 'Edit', url: edit_provider_path(provider), icon: 'edit'
+.mt-4.px-4
+  .pl-2
+    .mb-4
+      span.font-bold
+        | API Key:
+      span.font-mono.text-gray-800.pl-2
+        = vc 'base/copy_text', text: provider.api_key, slim: true, hidden: true, hidden_length: 15
+    .mb-4
+      span.font-bold
+        | Base URL:
+      span.font-mono.text-gray-800.pl-2
+        = vc 'base/copy_text', text: provider.url, slim: true
+    .mb-4
+      span.font-bold
+        | Profilable:
+      span.font-mono.text-gray-800.pl-2
+        | true
+  .pl-2
+    .group-box.my-4
+      span.text-xl.font-bold Proxy returns
+      .pt-2
+      span.text-sm.font-mono.text-gray-500
+        | Each proxy response contain:
+      hr.my-4.border.border-gray-200
+      = vc 'docs/field', name: :info, type: :object, details: 'Basic information about proxy response.' do |dmp|
+        = dmp.with_child do
+          = vc 'docs/collapse_box', collapsed: true do |cmp|
+            = cmp.with_child do
+              .group-box
+                = vc 'docs/field', name: :app, type: :string, details: 'The application name.'
+                = vc 'docs/field', name: :env, type: :string, details: 'Rails application environment.'
+                = vc 'docs/field', name: :url, type: :string, details: 'The request URL.'
+                = vc 'docs/field', name: :provider, type: :string, details: 'The provider name.'
+
+      = vc 'docs/field', name: :proxy, type: :object, details: 'Original response details' do |dmp|
+        = dmp.with_child do
+          = vc 'docs/collapse_box', collapsed: true do |cmp|
+            = cmp.with_child do
+              .group-box
+                = vc 'docs/field', name: :profile, type: :string, details: 'Name of the profile used to make the request.'
+                = vc 'docs/field', name: :status, type: :integer, details: 'The HTTP status code.'
+                = vc 'docs/field', name: :original_body, type: :object, details: 'The original response body.'
+  hr.my-4.border.border-gray-200
+
+  // Models
+  .flex.flex-row.items-stretch.gap-4 data-controller="prism"
+    - if provider.models_path.present?
+      .relative.grow.overflow-hidden.mx-auto.px-1
+        .p-2.pb-1
+          p.pb-1.text-2xl.font-bold
+            | List all models
+          span.text-sm.font-mono.text-gray-500
+            | This endpoint will list all the models available for this provider.
+        = vc 'base/endpoint', host: current_host, path: path_for(provider, :models), method: :get, show_with_host: false, label: 'Proxy' do |cmp|
+          - cmp.with_child do
+            = vc :button, title: 'Try', color: :purple, path: models_provider_path(provider, format: params[:f].presence || :json) do |btn|
+              = btn.with_icon name: 'play', size: 3
+
+        = vc 'base/endpoint', host: provider.url, path: provider.models_path, method: :get, show_with_host: false, label: provider.name
+
+        .p-2
+          span.text-2xl.font-bold Parameters
+          .group-box.purple.my-4
+            = vc 'docs/field', name: :full, type: :boolean, optional: true, details: 'When true, returns the full model object from provider.'
+
+        .my-4
+          span.font-bold
+            | Default Model:
+          span.font-mono.text-gray-800.pl-2
+            = vc 'base/copy_text', text: provider.default_model, slim: true
+
+        span.text-2xl.font-bold Returns
+        .group-box.my-4
+          = vc 'docs/field', name: :models, type: :array, details: 'It returns an array of model names or objects from provider. With the full as `true` parameter, it will return an array of strings.'
+          span.font-bold
+            | Models:
+          ul.list-disc.list-inside.text-gray-800.font-mono
+            - provider.models.each do |model|
+              li
+                = vc 'base/copy_text', text: model, slim: true
+          - unless docs[:models]
+            .pt-4
+            = vc 'button', title: 'Try to refresh cURL', color: :orange, path: refresh_docs_provider_path(provider, endpoint: :models) do |btn|
+              = btn.with_icon name: 'refresh', size: 3
+      = vc :curl_box, provider:, endpoint: :models, path: :models_path, method: :get, proxy_curl_response: docs[:models]&.body
+
+  // Ask
+  .flex.flex-row.items-stretch.gap-4 data-controller="prism"
+    .relative.grow.overflow-hidden.mx-auto.px-1
+      .p-2.pb-1
+        p.pb-1.text-2xl.font-bold Ask a question
+        span.text-sm.font-mono.text-gray-500
+          | This endpoint will ask a question to the model.
+      .my-2
+        = vc 'base/endpoint', host: current_host, path: path_for(provider, :ask), method: :post, show_with_host: false, label: 'Proxy' do |cmp|
+          - cmp.with_child do
+            = vc :button, title: 'Try', color: :purple, path: ask_provider_path(provider, format: params[:f].presence || :json), data: { method: :post, prompt: :question, message: 'Please enter your question:', controller: 'proxy-request', action: "click->proxy-request#onClick" } do |btn|
+              = btn.with_icon name: 'play', size: 3
+
+      .p-2
+        span.text-2xl.font-bold Parameters
+        .group-box.purple.my-4
+          = vc 'docs/field', name: :question, required: true, details: 'The content of the question you want to ask the model.'
+          = vc 'docs/field', name: :model, optional: true, details: 'The model you want to ask the question to. e.g. "gpt-3.5-turbo"'
+          = vc 'docs/field', name: :profile, optional: true, details: 'The profile id name you want to use to make the request.'
+
+        span.text-2xl.font-bold Returns
+        .group-box.my-4
+          = vc 'docs/field', name: :ref_id, details: 'Conversation ID. if present'
+          = vc 'docs/field', name: :answer, details: 'The response from the model.' do |cmp|
+            = cmp.with_child do
+              - unless docs[:ask]
+                .pt-2
+                = vc 'button', title: 'Try to refresh cURL', color: :orange, path: refresh_docs_provider_path(provider, endpoint: :ask) do |btn|
+                  = btn.with_icon name: 'refresh', size: 3
+    = vc :curl_box, provider:, endpoint: :ask, method: :post, mode: :only_proxy, proxy_curl_response: docs[:ask]&.body, proxy_data: docs[:ask]&.params
+  hr.my-4.border.border-gray-200
+  // Completions
+  .flex.flex-row.items-stretch.gap-4 data-controller="prism"
+    .relative.grow.overflow-hidden.mx-auto.px-1
+      .p-2.pb-1
+        p.pb-1.text-2xl.font-bold Completions
+        span.text-sm.font-mono.text-gray-500
+          | This endpoint will use completions for the model.
+      .my-2
+        = vc 'base/endpoint', host: current_host, path: path_for(provider, :completions), method: :post, show_with_host: false, label: 'Proxy' do |cmp|
+          - cmp.with_child do
+            = vc :button, title: 'Try', color: :purple, path: completions_provider_path(provider, format: params[:f].presence || :json), data: { method: :post, prompt: '_replace_me_', message: 'Please enter your question:', payload: { payload: { messages: [{ role: :user, content: :_replace_me_ }] } }.to_json, controller: 'proxy-request', action: "click->proxy-request#onClick" } do |btn|
+              = btn.with_icon name: 'play', size: 3
+        = vc 'base/endpoint', host: provider.url, path: provider.chat_path, method: :post, show_with_host: false, label: provider.name
+
+      .p-2
+        span.text-2xl.font-bold Parameters
+        .group-box.purple.my-4
+          = vc 'docs/field', name: :message, type: :array, required: true, details: 'The messages' do |cmp|
+            = cmp.with_child do
+              = vc 'docs/collapse_box', collapsed: false do |cmp|
+                = cmp.with_child do
+                  .group-box.purple
+                    = vc 'docs/field', name: :role, required: true, details: 'The role of the message. Usually, it is either user or system.'
+                    = vc 'docs/field', name: :content, required: true, details: 'The message'
+
+        span.text-2xl.font-bold Returns
+        .group-box.my-4
+          = vc 'docs/field', name: :message, type: :array, details: 'Array of the messages' do |cmp|
+            = cmp.with_child do
+              = vc 'docs/collapse_box', collapsed: true do |cmp|
+                = cmp.with_child do
+                  .group-box
+                    = vc 'docs/field', name: :role, details: 'The role of the message. Usually, it is either user or system.'
+                    = vc 'docs/field', name: :content, details: 'The message'
+          = vc 'docs/field', name: :ref_id, details: 'Conversation ID. if present'
+          = vc 'docs/field', name: :model, details: 'The model used to make the request.'
+          = vc 'docs/field', name: :finish_reason, details: 'Usually, it is either stop or length.' do |cmp|
+            = cmp.with_child do
+              - unless docs[:completions]
+                .pt-2
+                = vc 'button', title: 'Try to refresh cURL', color: :orange, path: refresh_docs_provider_path(provider, endpoint: :completions) do |btn|
+                  = btn.with_icon name: 'refresh', size: 3
+
+    = vc :curl_box, provider:, endpoint: :completions, path: :chat_path, method: :post, proxy_curl_response: docs[:completions]&.body, proxy_data: docs[:completions]&.params
+
+  hr.my-4.border.border-gray-200
+  // Chat
+  .flex.flex-row.items-stretch.gap-4 data-controller="prism"
+    .relative.grow.overflow-hidden.mx-auto.px-1
+      .p-2.pb-1
+        p.pb-1.text-2xl.font-bold Chat
+        span.text-sm.font-mono.text-gray-500
+          | This is direct proxy to the provider
+      .my-2
+        = vc 'base/endpoint', host: current_host, path: path_for(provider, :chat), method: :post, show_with_host: false, label: :proxy
+        = vc 'base/endpoint', host: provider.url, path: provider.chat_path, method: :post, show_with_host: false, label: provider.name
+      .p-2
+        .group-box.my-4
+          span.text-l.font-bold Read more:
+          .pt-2
+          - if provider.info.as_json.values.all?(&:blank?)
+            p.mb-2.text-base.text-neutral-500
+              | No information available
+          - provider.info.as_json.each do |key, value|
+            - next unless value.present?
+            p.mb-2.text-base.text-neutral-500
+              strong.inline-block = key.to_s.humanize
+              | :&nbsp;
+              a.inline-block.text-blue-600.underline.underline-offset-2.decoration-blue-600.hover:opacity-80.focus:outline-none.focus:opacity-80 href=value target="_blank"
+                | #{value}

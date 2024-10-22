@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"unk_llama3-8b-8192","messages":[{"role":"user","content":"What''s
+        is the capital of Germany?"}],"max_tokens":50,"temperature":0.7}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer gsk_QIZ
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 23:05:45 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Request-Id:
+      - req_01ja96w9x2eztb32002ne56b0j
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=blWD.Mclk8nOKgW91usFAtIBfzaEQUfwt3cDKUnRTDk-1729033545-1.0.1.1-ghWtQzeNaDC1PmytG8QL8OVLNqoodw4DcrTnkOLvQd.bLtuxxMSpklyYpn4kM_SwW8F1t5NKBGZcV9L2o2Kobg;
+        path=/; expires=Tue, 15-Oct-24 23:35:45 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d3374aba837b327-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"message":"The model `unk_llama3-8b-8192` does not exist
+        or you do not have access to it.","type":"invalid_request_error","code":"model_not_found"}}
+
+        '
+  recorded_at: Tue, 15 Oct 2024 23:05:45 GMT
+recorded_with: VCR 6.3.1

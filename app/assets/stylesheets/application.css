@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+.group-box {
+  border-radius: .25rem;
+  border-width: 1px 1px 1px 4px;
+  border-color: rgb(229 231 235/var(--tw-border-opacity));
+  --tw-border-opacity: 1;
+  border-left-color: rgb(107 114 128/var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249/var(--tw-bg-opacity));
+  padding: 1.25rem;
+  --tw-shadow: 0 0px 6px 0px rgba(0,0,0,.1);
+  --tw-shadow-colored: 0 0px 6px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)
+}
+
+.group-box.purple {
+  border-color: rgb(247 209 255/var(--tw-border-opacity));
+  --tw-border-opacity: 1;
+  border-left-color: rgb(194 0 230/var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 249 249/var(--tw-bg-opacity));
+}
+
+.language-json {
+  background: transparent !important;
+}
+
+.language-json .token {
+  background: transparent !important;
+}
+
+.language-bash {
+  background: transparent !important;
+}
+
+.language-bash .token {
+  background: transparent !important;
+}
+
+
+.github-svg-gray--with-hover path {
+  fill: #999;
+  transition: fill 0.3s ease;
+}
+
+.github-svg-gray--with-hover:hover path {
+  fill: #000;
+}

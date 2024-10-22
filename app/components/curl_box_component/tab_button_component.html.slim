@@ -1,0 +1,4 @@
+button.group.flex.items-center.relative.px-2.pt-2.5.pb-2.outline-none.whitespace-nowrap.font-medium.text-primary-light class=(active ? 'text-gray-200' : 'text-gray-400') data-action=(target ? "click->curl-box#onSelectTab" : nil) role="tab" type="button" aria-selected=(active ? 'true' : 'false') tabindex=tab_index data-curl-box-target=target
+  .px-2.rounded-md.z-10.group-hover:bg-gray-700/60.group-hover:text-primary-light
+    = label
+  .absolute.inset-0.border-b.pointer-events-none.border-primary-light data-curl-box-target="highlight" class=(active ? '' : 'hidden')

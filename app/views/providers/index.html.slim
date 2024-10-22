@@ -1,0 +1,7 @@
+= content_for :header do
+  = render Layout::HeaderComponent.new(title: 'Providers', details: 'List of all providers')
+
+#providers.mt-4.px-4
+  .grid.grid-cols-3.gap-3
+    - providers.each do |provider|
+      = render ProviderCardComponent.new(provider:)

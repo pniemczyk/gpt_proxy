@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:11434/api/chat
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.1:70b","messages":[{"role":"user","content":"What''s
+        is the capital of Germany?"}],"max_tokens":50,"temperature":0.7,"stream":false}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Oct 2024 22:35:35 GMT
+      Content-Length:
+      - '329'
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.1:70b","created_at":"2024-10-15T22:35:35.883609Z","message":{"role":"assistant","content":"The
+        capital of Germany is Berlin."},"done_reason":"stop","done":true,"total_duration":5409653750,"load_duration":3839204791,"prompt_eval_count":18,"prompt_eval_duration":677729000,"eval_count":8,"eval_duration":891255000}'
+  recorded_at: Tue, 15 Oct 2024 22:35:35 GMT
+recorded_with: VCR 6.3.1

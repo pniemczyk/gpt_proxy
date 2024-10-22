@@ -1,0 +1,6 @@
+div data-controller="dismiss" data-dismiss-target="container" id="alert-#{type}" class="flex items-center p-4 text-#{color}-800 border-t-4 border-#{color}-300 bg-#{color}-50 light:text-#{color}-400 light:bg-gray-800 light:border-#{color}-800" role="alert"
+  = vc :icon, name: icon, size: 6, classes: "text-#{color}-600"
+  div.ms-3.text-sm.font-medium
+    = message
+  button.ms-auto.-mx-1.5.-my-1.5.rounded-lg.focus:ring-2.inline-flex.items-center.justify-center.h-8.w-8.light:bg-gray-800.light:hover:bg-gray-700 class="bg-#{color}-50 text-#{color}-500 focus:ring-#{color}-400 p-1.5  hover:bg-#{color}-200 light:text-#{color}-400" data-action="click->dismiss#onDismiss" data-dismiss-target="#alert-#{type}" aria-label="Close"
+    = vc :icon, name: :close, size: 6

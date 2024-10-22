@@ -1,0 +1,29 @@
+= content_for :header do
+  = vc 'layout/header', title: provider.name, details: 'Available models' do |c|
+    = c.with_button do
+      = vc :group_buttons do |cmp|
+        - cmp.with_button title: 'Back', url: providers_path, icon: :back
+- objects = result.body.models.first.is_a?(String)
+.mt-4.px-4
+  - if objects
+    - result.body.models.each do |model|
+      span.font-mono.text-gray-800.pl-2.block.pb-1
+        = vc 'base/copy_text', text: model, slim: true
+  - else
+    .grid.grid-cols-3.gap-3
+      - result.body.models.each do |model|
+        .block.rounded-md.border.border-neutral-200.bg-white.shadow-xl.light:bg-neutral-700.text-left
+          .border-b-2.border-neutral-200.px-6.py-4.light:border-neutral-500.bg-gray-100
+            h5.flex.items-center.justify-start.text-neutral-500.light:text-neutral-300
+              = vc 'base/copy_text', text: model['id'], slim: false
+          - model.each_with_index do |(key, value), idx|
+            .px-4.py-6.sm:grid.sm:grid-cols-3.sm:gap-4.sm:px-3 class=(idx.odd? ? 'bg-gray-50' : 'bg-white')
+              dt.text-sm.font-medium.leading-6.text-gray-900
+                = key.to_s.humanize
+                | :&nbsp;
+              dd.mt-1.text-sm.leading-6.text-gray-700.sm:col-span-2.sm:mt-0
+                - if value && key == 'id'
+                  = vc 'base/copy_text', text: value, slim: true
+                - else
+                  = value.presence || 'N/A'
+

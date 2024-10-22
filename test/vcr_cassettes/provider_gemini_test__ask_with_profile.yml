@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaS
+    body:
+      encoding: UTF-8
+      string: '{"contents":[{"role":"user","parts":[{"text":"What is the capital of
+        France?"}]}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Vary:
+      - Origin
+      - Referer
+      - X-Origin
+      Date:
+      - Tue, 15 Oct 2024 23:35:25 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Cache-Control:
+      - private
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      Server-Timing:
+      - gfet4t7; dur=947
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "The capital of France is **Paris**. \n"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0,
+              "safetyRatings": [
+                {
+                  "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HATE_SPEECH",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HARASSMENT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                  "probability": "NEGLIGIBLE"
+                }
+              ]
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 8,
+            "candidatesTokenCount": 8,
+            "totalTokenCount": 16
+          }
+        }
+  recorded_at: Tue, 15 Oct 2024 23:35:25 GMT
+recorded_with: VCR 6.3.1

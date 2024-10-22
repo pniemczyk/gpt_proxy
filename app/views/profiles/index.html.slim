@@ -1,0 +1,10 @@
+= content_for :header do
+  = vc 'layout/header', title: 'Profiles', details: 'List of all profiles' do |c|
+    = c.with_button do
+      = vc :button, title: 'Add', color: :green, path: new_profile_path do |btn|
+        = btn.with_icon name: 'add'
+
+#profiles.mt-4.px-4
+  .grid.grid-cols-3.gap-3
+    - profiles.each do |profile|
+      = render ProfileCardComponent.new(profile:)

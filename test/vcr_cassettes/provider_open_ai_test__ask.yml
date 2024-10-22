@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"temperature":0.7,"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"What
+        is the capital of France?"}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer sk-proj-QhR
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 21:36:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-zdky37cnzqat2yago2gt51ih
+      Openai-Processing-Ms:
+      - '465'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '200000'
+      X-Ratelimit-Remaining-Requests:
+      - '9997'
+      X-Ratelimit-Remaining-Tokens:
+      - '198967'
+      X-Ratelimit-Reset-Requests:
+      - 24.839s
+      X-Ratelimit-Reset-Tokens:
+      - 309ms
+      X-Request-Id:
+      - req_996aa2e17ad560c09bafdf747088bf64
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=0FcuRNoEFznpN_JYM.aGfcSx16ig4Q8kbnbW8OYT7H8-1729028189-1.0.1.1-_f5cfvblY0GqAO21IpRx2BN6GfwxkTxecrecSFmIsUAJLsiLF.a2qK1A1j7GxIiUi.D.JmRxe5jqnkP.K7ONEw;
+        path=/; expires=Tue, 15-Oct-24 22:06:29 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=FZvZDU6pzaefkwQXOKPVQDSZcwgeHwp1VKgeMvRv3AU-1729028189404-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d32f1e3def8b389-PRG
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-AIjVN7sEeZBY8scrBBE6rpRyKQdNJ",
+          "object": "chat.completion",
+          "created": 1729028189,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "The capital of France is Paris.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 14,
+            "completion_tokens": 7,
+            "total_tokens": 21,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+  recorded_at: Tue, 15 Oct 2024 21:36:29 GMT
+recorded_with: VCR 6.3.1

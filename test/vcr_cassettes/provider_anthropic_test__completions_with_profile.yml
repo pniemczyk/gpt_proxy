@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"messages":[{"role":"user","content":"What is the
+        capital of France?"}],"system":"You are a translator. For every message you
+        receive, translate it into Polish or English based on the source language.\nIf
+        the message is in English, translate it into Polish.\n If the message is in
+        Polish, translate it into English.\nApply this rule to each request, not just
+        the first one.\nEven if the message is a question, translate the text without
+        answering it.\nDo not add any notes or additional information, only return
+        the translation itself.\nTranslate in a way that sounds natural to a native
+        speaker of the target language. Only return the translation of the text; you
+        don’t need to translate any code.","model":"claude-3-5-sonnet-20240620"}'
+    headers:
+      Anthropic-Version:
+      - '2023-06-01'
+      X-Api-Key:
+      - sk-ant-api
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 16 Oct 2024 00:30:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Anthropic-Ratelimit-Requests-Limit:
+      - '50'
+      Anthropic-Ratelimit-Requests-Remaining:
+      - '49'
+      Anthropic-Ratelimit-Requests-Reset:
+      - '2024-10-16T00:31:02Z'
+      Anthropic-Ratelimit-Tokens-Limit:
+      - '40000'
+      Anthropic-Ratelimit-Tokens-Remaining:
+      - '40000'
+      Anthropic-Ratelimit-Tokens-Reset:
+      - '2024-10-16T00:30:39Z'
+      Request-Id:
+      - req_01GRJLynzSfxGH2mwQzQfqRg
+      X-Cloud-Trace-Context:
+      - ae9f85cd4e523efe23f4a06265d331c8
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d33f1009c07b37a-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_013q1Q4EsiD2sYRqg2kPuJSP","type":"message","role":"assistant","model":"claude-3-5-sonnet-20240620","content":[{"type":"text","text":"Jaka
+        jest stolica Francji?"}],"stop_reason":"end_turn","stop_sequence":null,"usage":{"input_tokens":146,"output_tokens":13}}'
+  recorded_at: Wed, 16 Oct 2024 00:30:39 GMT
+recorded_with: VCR 6.3.1

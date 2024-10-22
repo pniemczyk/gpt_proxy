@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"max_tokens":1024,"temperature":0.7,"messages":[{"role":"user","content":"What
+        is the capital of France?"},{"role":"assistant","content":"The capital of
+        France is Paris."},{"role":"user","content":"What is the capital of Poland?"}],"model":"llama3-8b-8192"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer gsk_QIZ
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 22:59:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Ratelimit-Limit-Requests:
+      - '14400'
+      X-Ratelimit-Limit-Tokens:
+      - '30000'
+      X-Ratelimit-Remaining-Requests:
+      - '14399'
+      X-Ratelimit-Remaining-Tokens:
+      - '29964'
+      X-Ratelimit-Reset-Requests:
+      - 6s
+      X-Ratelimit-Reset-Tokens:
+      - 72ms
+      X-Request-Id:
+      - req_01ja96hg0gfyss87zaxtqx7ecn
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=UaObqywalTrfeyeCpDA96HPpNLHy_KBywCFcGrIRzqE-1729033191-1.0.1.1-V8LaWf7cLkioPogkTgd9uxX3buRI2kIaKXt7VIfMyJ4yGjPHhJc1PiUzQkxJ6HdQr_2fW706T1b_X1aNR3xcAw;
+        path=/; expires=Tue, 15-Oct-24 23:29:51 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d336c05ef62b345-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-78e10ca2-a285-4b20-8060-750cfc67c94b","object":"chat.completion","created":1729033191,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"The
+        capital of Poland is Warsaw."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.009525204999999998,"prompt_tokens":41,"prompt_time":0.004903003,"completion_tokens":8,"completion_time":0.006666667,"total_tokens":49,"total_time":0.01156967},"system_fingerprint":"fp_a97cfe35ae","x_groq":{"id":"req_01ja96hg0gfyss87zaxtqx7ecn"}}
+
+        '
+  recorded_at: Tue, 15 Oct 2024 22:59:51 GMT
+recorded_with: VCR 6.3.1

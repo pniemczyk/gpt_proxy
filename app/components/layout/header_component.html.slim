@@ -1,0 +1,12 @@
+header.border-b.border-gray-200.bg-gray-50
+  .px-16.py-8
+    .flex.flex-col.items-start.gap-4.md:flex-row.md:items-center.md:justify-between
+      div
+        h1.text-2xl.font-bold.text-gray-900.sm:text-3xl = title
+
+        - if details.present?
+          p.mt-1.5.text-sm.text-gray-500 = details
+
+      .flex.items-center.gap-4
+        - buttons.each do |button|
+          = button

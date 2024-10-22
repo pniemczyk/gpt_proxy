@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.anthropic.com/v1/messages
+    body:
+      encoding: UTF-8
+      string: '{"model":"unk_gpt-3.5-turbo","messages":[{"role":"user","content":"What''s
+        is the capital of Germany?"}],"max_tokens":50,"temperature":0.7}'
+    headers:
+      Anthropic-Version:
+      - '2023-06-01'
+      X-Api-Key:
+      - sk-ant-api
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 16 Oct 2024 00:32:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Should-Retry:
+      - 'false'
+      Request-Id:
+      - req_01Gwd9Jpo1qcUaeJ6GH2CGuF
+      X-Cloud-Trace-Context:
+      - c24bb911b6b6f5ff3bc1ba9a9bdf404b
+      Via:
+      - 1.1 google
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Robots-Tag:
+      - none
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d33f465ad1527bc-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type":"error","error":{"type":"not_found_error","message":"model:
+        unk_gpt-3.5-turbo"}}'
+  recorded_at: Wed, 16 Oct 2024 00:32:57 GMT
+recorded_with: VCR 6.3.1

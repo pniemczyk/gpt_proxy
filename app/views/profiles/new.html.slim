@@ -1,0 +1,9 @@
+= content_for :header do
+  = vc 'layout/header', title: 'New profile', details: 'Create a new profile' do |c|
+    = c.with_button do
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Back', url: profiles_path, icon: :back
+
+.mt-4.px-4
+  == render "form", profile:
+

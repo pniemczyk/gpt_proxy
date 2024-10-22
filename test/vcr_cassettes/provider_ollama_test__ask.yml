@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:11434/api/chat
+    body:
+      encoding: UTF-8
+      string: '{"stream":false,"model":"llama3.1:70b","messages":[{"role":"user","content":"What
+        is the capital of France?"}]}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Oct 2024 22:23:41 GMT
+      Content-Length:
+      - '326'
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.1:70b","created_at":"2024-10-15T22:23:41.358485Z","message":{"role":"assistant","content":"The
+        capital of France is Paris."},"done_reason":"stop","done":true,"total_duration":2471668417,"load_duration":18783292,"prompt_eval_count":17,"prompt_eval_duration":1568525000,"eval_count":8,"eval_duration":883501000}'
+  recorded_at: Tue, 15 Oct 2024 22:23:41 GMT
+recorded_with: VCR 6.3.1

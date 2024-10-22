@@ -1,0 +1,11 @@
+= content_for :header do
+  = vc 'layout/header', title: provider.name, details: 'Question response' do |c|
+    = c.with_button do
+      = vc :group_buttons do |cmp|
+        - cmp.with_button title: 'Back', url: providers_path, icon: :back
+
+.mt-4.px-4
+  .text-2xl.bold
+    | Your answer:
+  .text-2xl
+    = vc 'base/copy_text', text: result.body.answer, slim: true

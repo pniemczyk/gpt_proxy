@@ -1,0 +1,21 @@
+.pt-2.pb-2.my-2.border-gray-200.light:border-gray-800/50.border-b
+  .flex.font-mono.text-sm
+    .flex-1.flex.content-start.py-0.5.mr-5
+      .flex.items-center.flex-wrap.gap-2
+        .font-bold.text-primary.light:text-primary-light
+          span.px-2.py-0.5.rounded-md.bg-gray-100.border.border-solid class="text-[#c200e6] border-[#e5e7eb]"
+            = name
+        .flex.items-center.space-x-2.text-xs.font-medium
+          span.px-2.py-0.5.rounded-md.bg-gray-100.light:bg-white/5.text-gray-600.light:text-gray-200.border.border-solid
+            = type
+          - if required
+            span.px-2.py-0.5.rounded-md.bg-red-100/50.light:bg-red-400/10.text-red-600.light:text-red-300.border.border-solid
+              = 'required'
+          - elsif optional
+            span.px-2.py-0.5.rounded-md.bg-green-100/50.light:bg-green-400/10.text-green-600.light:text-green-300.border.border-solid
+              = 'optional'
+  .mt-4.prose-sm.prose-gray.light:prose-invert
+    p
+      = details
+  = child
+

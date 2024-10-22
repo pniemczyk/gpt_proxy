@@ -1,0 +1,34 @@
+.hidden.xl:flex.self-start.sticky class="h-[calc(100vh-6.5rem-1rem)] top-[6.5rem]" data-controller="curl-box"
+  .gap-6.grid.grid-rows.relative class="w-[28rem] grid-rows-[repeat(auto-fit,minmax(0,min-content))]"
+    .flex.flex-col.not-prose.relative.overflow-hidden.dark:bg-codeblock.rounded-xl.dark:ring-1.dark:ring-gray-800/50 class="bg-[#0F1117]"
+      .relative
+        .mt-2.text-xs.leading-6.border-b.bg-black/40.rounded-t-xl.border-gray-900/80.flex.overflow-x-auto.overflow-y-hidden.mr-12.scrollbar-thin.scrollbar-thumb-rounded.scrollbar-track-transparent.scrollbar-thumb-white/20.dark:scrollbar-thumb-white/20.hover:scrollbar-thumb-white/25.dark:hover:scrollbar-thumb-white/25.active:scrollbar-thumb-white/25.dark:active:scrollbar-thumb-white/25[role="tablist" aria-orientation="horizontal"]
+          - unless no_proxy?
+            = vc 'curl_box_component/tab_button', label: 'Proxy cURL', active: true, tab_index: 0, target: 'tab'
+          - unless only_proxy?
+            = vc 'curl_box_component/tab_button', label: 'cURL', active: no_proxy?, tab_index: 1, target: 'tab'
+        .flex.items-center.justify-center.absolute.top-0.pr-4.right-0.m-auto.rounded-tr class="h-[42px] bg-[#0F1117].z-10"
+          .group.z-10.relative
+            = vc 'curl_box_component/copy_button', target: 'curl'
+      .flex.flex-1.overflow-hidden
+        .flex-none.text-gray-50.p-5.min-w-full.overflow-x-auto.w-full.scrollbar-thin.scrollbar-thumb-rounded.scrollbar-track-transparent.scrollbar-thumb-white/20.dark:scrollbar-thumb-white/20.hover:scrollbar-thumb-white/25.dark:hover:scrollbar-thumb-white/25.active:scrollbar-thumb-white/25.dark:active:scrollbar-thumb-white/25.text-xs class="leading-[1.35rem]" role="tabpanel" tabindex="0" style="font-variant-ligatures: none;"
+          - unless no_proxy?
+            = vc 'curl_box_component/code_panel', code: proxy_curl, language: :bash, tab_index: 0, target: :curl, active: true
+          - unless only_proxy?
+            = vc 'curl_box_component/code_panel', code: curl, language: :bash, tab_index: 1, target: :curl, active: no_proxy?
+    - if curl_response || proxy_curl_response
+      .flex.flex-col.not-prose.relative.overflow-hidden.dark:bg-codeblock.rounded-xl.dark:ring-1.dark:ring-gray-800/50 class="bg-[#0F1117] max-h-[50vh] min-h-[100px]"
+        .relative
+          .mt-2.text-xs.leading-6.border-b.bg-black/40.rounded-t-xl.border-gray-900/80.flex.overflow-x-auto.overflow-y-hidden.mr-12.scrollbar-thin.scrollbar-thumb-rounded.scrollbar-track-transparent.scrollbar-thumb-white/20.dark:scrollbar-thumb-white/20.hover:scrollbar-thumb-white/25.dark:hover:scrollbar-thumb-white/25.active:scrollbar-thumb-white/25.dark:active:scrollbar-thumb-white/25[role="tablist" aria-orientation="horizontal"]
+            = vc 'curl_box_component/tab_button', label: 'Response', active: true
+          .flex.items-center.justify-center.absolute.top-0.pr-4.right-0.m-auto.rounded-tr.z-10 class="h-[42px] bg-[#0F1117]"
+            .group.z-10.relative
+              = vc 'curl_box_component/copy_button', target: 'response'
+        .flex.flex-1.overflow-hidden
+          .flex-none.text-gray-50.p-5.min-w-full.overflow-x-auto.w-full.scrollbar-thin.scrollbar-thumb-rounded.scrollbar-track-transparent.scrollbar-thumb-white/20.dark:scrollbar-thumb-white/20.hover:scrollbar-thumb-white/25.dark:hover:scrollbar-thumb-white/25.active:scrollbar-thumb-white/25.dark:active:scrollbar-thumb-white/25.text-xs class="leading-[1.35rem]" role="tabpanel" tabindex="0" data-headlessui-state="selected" style="font-variant-ligatures: none;"
+            - unless no_proxy?
+              - if proxy_curl_response
+                = vc 'curl_box_component/code_panel', code: proxy_curl_response, language: :json, tab_index: 0, target: :response, auto_format: true, active: true
+            - unless only_proxy?
+              - if curl_response
+                = vc 'curl_box_component/code_panel', code: curl_response, language: :json, tab_index: 1, target: :response, auto_format: true, active: no_proxy?

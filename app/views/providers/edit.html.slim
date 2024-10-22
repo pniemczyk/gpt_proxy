@@ -1,0 +1,9 @@
+= content_for :header do
+  = vc 'layout/header', title: "Edit #{provider.name}", details: 'Basic details of a provider' do |c|
+    = c.with_button do
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Back', url: providers_path, icon: :back
+        - cmp.with_button title: 'Show', url: provider_path(provider), icon: :show
+
+.mt-4.px-4
+  == render "form", provider:

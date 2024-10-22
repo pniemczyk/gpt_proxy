@@ -1,0 +1,10 @@
+= content_for :header do
+  = vc 'layout/header', title: profile.name, details: profile.description.presence || 'Basic details of a provider' do |c|
+    = c.with_button do
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Back', url: profiles_path, icon: :back
+        - cmp.with_button title: 'Edit', url: edit_profile_path(profile), icon: :edit
+        - cmp.with_button title: 'Destroy', url: profile_path(profile), http_method: :delete, icon: :delete, data: { turbo_confirm: "Are you sure?" }
+
+.mt-4.px-4
+  == render profile

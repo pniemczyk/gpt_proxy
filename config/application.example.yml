@@ -1,0 +1,10 @@
+APP_HOST: localhost:3000
+HTTPS: 'false'
+FARADAY_CAPTURE: 'false'
+FARADAY_PUBLISH: 'false'
+ALLOW_ALL_CORS_ORIGIN: 'true'
+PROVIDER_OLLAMA_URL: 'http://localhost:11434'
+development:
+test:
+  FARADAY_CAPTURE: 'false'
+  FARADAY_PUBLISH: 'false'

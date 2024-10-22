@@ -1,0 +1,19 @@
+.block.rounded-md.border.border-neutral-200.bg-white.shadow-xl.light:bg-neutral-700.text-left
+  .border-b-2.border-neutral-200.px-6.py-4.light:border-neutral-500.bg-gray-100
+    h5.flex.items-center.justify-start.text-neutral-500.light:text-neutral-300
+      a.mr-2.text-xl.font-bold.tracking-wide.text-neutral-800.light:text-neutral-50 href=profile_path(profile)
+        = profile.name
+      = vc 'group_buttons' do |cmp|
+        - cmp.with_button title: 'Show', url: profile_path(profile), icon: 'show'
+        - cmp.with_button title: 'Edit', url: edit_profile_path(profile), icon: 'edit'
+        - cmp.with_button title: 'Destroy', url: profile_path(profile), http_method: :delete, icon: :delete, data: { turbo_confirm: "Are you sure?" }
+
+  .border-t.border-gray-100
+    dl.divide-y.divide-gray-100
+    - profile.as_json(only: %w[name description content providers]).each_with_index do |(key, value), idx|
+      .px-4.py-6.sm:grid.sm:grid-cols-3.sm:gap-4.sm:px-3 class=(idx.odd? ? 'bg-gray-50' : 'bg-white')
+        dt.text-sm.font-medium.leading-6.text-gray-900
+          = key.to_s.humanize
+          | :&nbsp;
+        dd.mt-1.text-sm.leading-6.text-gray-700.sm:col-span-2.sm:mt-0
+          | #{value.is_a?(Array) ? value.join(', ') : value}

@@ -1,0 +1,15 @@
+= simple_form_for profile do |form|
+  - if profile.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(profile.errors.count, "error")} prohibited this profile from being saved:"
+      ul
+        - profile.errors.each do |error|
+          li = error.full_message
+
+  = form.input :id, required: true, disabled: profile.persisted?, input_html: { class: 'lowercase' }, hint: profile.persisted? ? nil : 'Unique identifier for the profile, will be used in API calls, e.g. translator, big_brain etc.'
+  = form.input :name, required: false, hint: profile.persisted? ? nil : 'Name of the profile, e.g., Translator, Big Brain, etc. If left empty, a name will be auto-generated from the ID, converting "translator" to "Translator" or "big_brain" to "Big Brain"'
+  = form.input :description
+  = form.input :content, as: :text, input_html: { rows: 8 }
+  = form.input :providers, collection: Provider.profilable.collect { |p| [p.name, p.id] }, as: :select, multiple: true, input_html: { multiple: true, class: "min-h-[144px] h-[#{20 *Provider.count}px] multi-select-field" }, include_blank: false, label: 'Select Providers'
+  div
+    = form.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 light:bg-blue-600 light:hover:bg-blue-700 focus:outline-none light:focus:ring-blue-800", value: profile.persisted? ? 'Update' : 'Create'

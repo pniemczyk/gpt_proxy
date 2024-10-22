@@ -1,0 +1,9 @@
+span.inline-block.px-2.break-all.text-gray-700.italic.bg-slate-100.border.border-gray-400/50.rounded-md class="text-[0.9rem] #{slim ? '' : 'py-1'}" data-controller="endpoint" data-action="click->endpoint#onCopy"
+  span data-endpoint-target="path" class="#{hidden ? 'hidden' : ''}"
+    = text
+  - if hidden
+    span
+      = "•" * (hidden_length || text.length)
+  span title="Copy element"
+    = vc 'icon', name: :copy_text, size: 2, data: { endpoint: { target: 'defaultIcon' } }, classes: 'hover:opacity-50 cursor-pointer inline-block'
+    = vc 'icon', name: :copy_text_success, size: 2, data: { endpoint: { target: 'successIcon' } }, classes: 'hover:opacity-50 cursor-pointer inline-block hidden'

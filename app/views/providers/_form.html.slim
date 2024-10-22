@@ -1,0 +1,31 @@
+= simple_form_for provider do |form|
+  - if provider.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(provider.errors.count, "error")} prohibited this provider from being saved:"
+      ul
+        - provider.errors.each do |error|
+          li = error.full_message
+
+  = form.input :name
+  = form.input :api_key
+  = form.input :url, input_html: { type: 'url' }
+  = form.input :default_model
+  = form.input :models_path
+  = form.input :chat_path
+  = form.input :models, as: :text, input_html: { rows: 8, value: provider.models.join(', ') }, hint: 'Enter the models in the format: model1, model2, model3'
+  = form.input :payload_options, as: :text, input_html: { rows: 8, value: JSON.pretty_generate(provider.payload_options).to_s }, hint: 'Enter the payload options in the JSON format. Example: {"key1": "value1", "key2": "value2"}'
+  = form.input :headers_options, as: :text, input_html: { rows: 8, value: JSON.pretty_generate(provider.headers_options) }, hint: 'Enter the headers options in the JSON format. Example: {"key1": "value1", "key2": "value2"}'
+  = form.input :profilable, as: :boolean, label: 'Provider can use profiles (system prompt)'
+  = form.input :info_homepage, input_html: { value: @provider.info.homepage }, label: 'Homepage'
+  = form.input :info_documentation, input_html: { value: @provider.info.documentation }, label: 'Documentation'
+  = form.input :info_models, input_html: { value: @provider.info.models }, label: 'Models'
+  = form.input :info_key_generation, input_html: { value: @provider.info.key_generation }, label: 'Key Generation'
+  = form.input :info_github, input_html: { value: @provider.info.github }, label: 'GitHub'
+  / = form.simple_fields_for :info do |fi|
+  /   = fi.input :homepage, input_html: { type: 'url' }
+  /   = fi.input :documentation, input_html: { type: 'url' }
+  /   = fi.input :models, input_html: { type: 'url' }
+  /   = fi.input :key_generation, input_html: { type: 'url' }
+  /   = fi.input :github, input_html: { type: 'url' }
+  div
+    = form.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 light:bg-blue-600 light:hover:bg-blue-700 focus:outline-none light:focus:ring-blue-800", value: 'Update'

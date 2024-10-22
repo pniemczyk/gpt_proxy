@@ -1,0 +1,16 @@
+= content_for :header do
+  = vc 'layout/header', title: provider.name, details: 'Completions response from the provider' do |c|
+    = c.with_button do
+      = vc :group_buttons do |cmp|
+        - cmp.with_button title: 'Back', url: providers_path, icon: :back
+
+.mt-4.px-4
+  .pt-4
+  .flex.flex-col.not-prose.relative.overflow-hidden.dark:bg-codeblock.rounded-xl.dark:ring-1.dark:ring-gray-800/50 class="bg-[#0F1117] max-h-[50vh] min-h-[100px]"
+    .flex.flex-1.overflow-hidden
+      .flex-none.text-gray-50.p-5.min-w-full.overflow-x-auto.w-full.scrollbar-thin.scrollbar-thumb-rounded.scrollbar-track-transparent.scrollbar-thumb-white/20.dark:scrollbar-thumb-white/20.hover:scrollbar-thumb-white/25.dark:hover:scrollbar-thumb-white/25.active:scrollbar-thumb-white/25.dark:active:scrollbar-thumb-white/25.text-xs class="leading-[1.35rem]"
+        pre class="!bg-transparent"
+          code class="language-json"
+            = JSON.pretty_generate(result.body.as_json)
+
+

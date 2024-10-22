@@ -1,0 +1,36 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:11434/api/chat
+    body:
+      encoding: UTF-8
+      string: '{"stream":false,"messages":[{"role":"user","content":"What is the capital
+        of France?"},{"role":"assistant","content":"The capital of France is Paris.","refusal":null},{"role":"user","content":"What
+        is the capital of Poland?"}],"model":"llama3.1:70b"}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 15 Oct 2024 22:25:48 GMT
+      Content-Length:
+      - '348'
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3.1:70b","created_at":"2024-10-15T22:25:48.896095Z","message":{"role":"assistant","content":"The
+        capital of Poland is Warsaw (Polish: Warszawa)."},"done_reason":"stop","done":true,"total_duration":4365405125,"load_duration":26793666,"prompt_eval_count":41,"prompt_eval_duration":2555183000,"eval_count":15,"eval_duration":1780258000}'
+  recorded_at: Tue, 15 Oct 2024 22:25:48 GMT
+recorded_with: VCR 6.3.1

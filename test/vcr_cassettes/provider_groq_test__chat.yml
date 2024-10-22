@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.groq.com/openai/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3-8b-8192","messages":[{"role":"user","content":"What''s
+        is the capital of Germany?"}],"max_tokens":50,"temperature":0.7}'
+    headers:
+      User-Agent:
+      - Faraday v2.12.0
+      Authorization:
+      - Bearer gsk_QIZ
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 23:02:47 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, max-age=0, no-store, no-cache, must-revalidate
+      Vary:
+      - Origin
+      X-Ratelimit-Limit-Requests:
+      - '14400'
+      X-Ratelimit-Limit-Tokens:
+      - '30000'
+      X-Ratelimit-Remaining-Requests:
+      - '14399'
+      X-Ratelimit-Remaining-Tokens:
+      - '29987'
+      X-Ratelimit-Reset-Requests:
+      - 6s
+      X-Ratelimit-Reset-Tokens:
+      - 26ms
+      X-Request-Id:
+      - req_01ja96pw8gfp3rydj31s4hm84q
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=N0v.1xUmCidyRuNt_yp9aam7wOVPp_lzORH4npYcZc8-1729033367-1.0.1.1-beKLSCztxN2H729vLddazC0zMM2g9IujTk6QlfkyDviSGPNjpPM_67FIG.T7IgnIYUJOO2kiC51SD4fLMw4Mkw;
+        path=/; expires=Tue, 15-Oct-24 23:32:47 GMT; domain=.groq.com; HttpOnly; Secure;
+        SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d337054497db360-PRG
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-73bb27ba-b646-4c26-afe8-eccbe2113f8b","object":"chat.completion","created":1729033367,"model":"llama3-8b-8192","choices":[{"index":0,"message":{"role":"assistant","content":"The
+        capital of Germany is Berlin."},"logprobs":null,"finish_reason":"stop"}],"usage":{"queue_time":0.011175327,"prompt_tokens":18,"prompt_time":0.001911161,"completion_tokens":8,"completion_time":0.006666667,"total_tokens":26,"total_time":0.008577828},"system_fingerprint":"fp_6a6771ae9c","x_groq":{"id":"req_01ja96pw8gfp3rydj31s4hm84q"}}
+
+        '
+  recorded_at: Tue, 15 Oct 2024 23:02:47 GMT
+recorded_with: VCR 6.3.1

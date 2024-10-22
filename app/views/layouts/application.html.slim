@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title
+      = content_for(:title) || "GPT proxy"
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="mobile-web-app-capable" content="yes"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = yield :head
+
+    / Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!)
+    / = tag.link rel: "manifest", href: pwa_manifest_path(format: :json)
+
+    link rel="icon" href="/icon.png" type="image/png"
+    link rel="icon" href="/icon.svg" type="image/svg+xml"
+    link rel="apple-touch-icon" href="/icon.png"
+
+    / Includes all stylesheet files in app/views/stylesheets
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    = yield(:head) if content_for?(:head)
+
+    / PrismJS
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" integrity="sha512-whYhDwtTmlC/NpZlCr6PSsAaLOrfjVg/iXAnC4H/dtiHawpShhT2SlIMbpIhT/IL/NrpdMm+Hq2C13+VKpHTYw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" integrity="sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsonp.min.js" integrity="sha512-N2q92ytGio5pTnPWBUQCvDTpj2LIQ3ZwUiRJN6KAMIm+3yw16tHDu8FIA4YK6A6PKFVZlrbOj8gj3L2Z/1UTpA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json5.min.js" integrity="sha512-MbfYOMnSmsdss5g+EHR4wFPGhXX5zQvQk2bVMW+y20PdSj1ir6aFrnLm3S7elwQuv9YaRoyMJFT+U5kQqyTj/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" integrity="sha512-Kit4oPSAREacS6LEF4LGcL6MMlG3O1GqRFDGSX1Vg4JrozGU7hHoMKFkiMWevWq/xmNq8pzMhO2PcZCPHe/gmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+
+    = javascript_importmap_tags
+
+  body
+    = yield(:header) if content_for?(:header)
+    .flex
+      - unless controller_name == 'view_components'
+        = vc 'layout/sidebar' do |c|
+          - c.with_link title: 'Home', url: root_path, icon: :home, active: controller_name == 'welcome'
+          - c.with_link title: 'Providers', url: providers_path, icon: :bolt, active: controller_name == 'providers'
+          - c.with_link title: 'Profiles', url: profiles_path, icon: :cpu, active: controller_name == 'profiles'
+          - c.with_link title: 'Github', url: 'https://github.com/pniemczyk/gpt_proxy', icon: :github, target: '_blank', icon_classes: 'github-svg-gray--with-hover'
+          / TODO: Uncomment when the chat feature is ready
+          / - c.with_link title: 'Ask', url: chat_default_live_index_path, icon: :ask, active: controller_name == 'live'
+          - if Rails.env.development?
+            - c.with_dev_link title: 'Preview components', url: lookbook_path, icon: :cog, target: '_blank'
+
+      main.container.max-w-full
+        - flash.each do |type, message|
+          = vc 'layout/flash', type:, message:
+        = yield

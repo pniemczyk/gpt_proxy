@@ -1,0 +1,16 @@
+.flex.min-h-screen.h-auto.w-16.flex-col.justify-between.border-e.bg-white
+  div
+    .border-t.border-gray-100
+      .px-2
+        - links.each do |lnk|
+          a.my-4.t.group.relative.flex.justify-center.rounded.px-2.py-1.5 href=lnk.url class=(lnk.active ? 'text-gray-800 hover:bg-gray-50 hover:text-gray-800' : 'text-gray-400 hover:bg-gray-50 hover:text-gray-800') target=lnk.target data=lnk.data class=lnk.classes
+            = vc :icon, name: lnk.icon, size: 6, classes: lnk.icon_classes
+            span.invisible.absolute.start-full.top-1/2.ms-4.-translate-y-1/2.rounded.bg-gray-900.px-2.py-1.5.text-xs.font-medium.text-white.group-hover:visible
+              = lnk.title
+        - if dev_links.present?
+          hr.space-y-1.border-t.border-gray-100
+          - dev_links.each do |lnk|
+            a.my-4.t.group.relative.flex.justify-center.rounded.px-2.py-1.5 href=lnk.url class=(lnk.active ? 'text-gray-800 hover:bg-gray-50 hover:text-gray-800' : 'text-gray-400 hover:bg-gray-50 hover:text-gray-800') target=lnk.target data=lnk.data class=lnk.classes
+              = vc :icon, name: lnk.icon, size: 6, classes: lnk.icon_classes
+              span.invisible.absolute.start-full.top-1/2.ms-4.-translate-y-1/2.rounded.bg-gray-900.px-2.py-1.5.text-xs.font-medium.text-white.group-hover:visible
+                = lnk.title

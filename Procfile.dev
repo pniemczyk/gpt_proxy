@@ -1,0 +1,2 @@
+web: RS_SRC=web bin/rails server
+css: RS_SRC=css: bin/rails tailwindcss:watch

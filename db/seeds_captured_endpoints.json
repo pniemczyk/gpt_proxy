@@ -1,0 +1,1622 @@
+[
+  {
+    "id": 1,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/anthropic/ask",
+    "params": {
+      "question": "When Albert Einstein died.",
+      "profile": null,
+      "model": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": "msg_019NavWFC6nDLMtV9PA2MkPQ",
+      "answer": "Albert Einstein died on April 18, 1955, at the age of 76.\n\nHe passed away at Princeton Hospital in New Jersey, USA, due to an abdominal aortic aneurysm. Einstein had refused surgery, saying: \"I want to go when I want. It is tasteless to prolong life artificially. I have done my share, it is time to go. I will do it elegantly.\"\n\nEinstein's death was a significant event in the scientific community and around the world, marking the loss of one of the most brilliant and influential physicists in history. His contributions to science, particularly his theory of relativity, continue to be foundational in modern physics.",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "msg_019NavWFC6nDLMtV9PA2MkPQ",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-3-5-sonnet-20240620",
+          "content": [
+            {
+              "type": "text",
+              "text": "Albert Einstein died on April 18, 1955, at the age of 76.\n\nHe passed away at Princeton Hospital in New Jersey, USA, due to an abdominal aortic aneurysm. Einstein had refused surgery, saying: \"I want to go when I want. It is tasteless to prolong life artificially. I have done my share, it is time to go. I will do it elegantly.\"\n\nEinstein's death was a significant event in the scientific community and around the world, marking the loss of one of the most brilliant and influential physicists in history. His contributions to science, particularly his theory of relativity, continue to be foundational in modern physics."
+            }
+          ],
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "usage": {
+            "input_tokens": 12,
+            "output_tokens": 149
+          }
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/anthropic/refresh_docs?endpoint=ask",
+        "provider": "Anthropic"
+      }
+    },
+    "created_at": "2024-10-22T04:06:30.138Z",
+    "updated_at": "2024-10-22T04:06:30.138Z"
+  },
+  {
+    "id": 2,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/anthropic/completions",
+    "params": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "When Albert Einstein died."
+        }
+      ],
+      "profile": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "message": {
+        "role": "assistant",
+        "content": "Albert Einstein died on April 18, 1955, at the age of 76. He passed away at Princeton Hospital in New Jersey, USA, due to an abdominal aortic aneurysm. Einstein had refused surgery, saying, \"I want to go when I want. It is tasteless to prolong life artificially. I have done my share; it is time to go. I will do it elegantly.\"\n\nEinstein's death marked the end of an era in physics and science. He was one of the most influential scientists of the 20th century, best known for his theories of special and general relativity, as well as his contributions to quantum mechanics and other areas of physics."
+      },
+      "ref_id": "msg_01XPzAjdVxG1snkpzY3Ldbq1",
+      "model": "claude-3-5-sonnet-20240620",
+      "finish_reason": "stop",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "msg_01XPzAjdVxG1snkpzY3Ldbq1",
+          "type": "message",
+          "role": "assistant",
+          "model": "claude-3-5-sonnet-20240620",
+          "content": [
+            {
+              "type": "text",
+              "text": "Albert Einstein died on April 18, 1955, at the age of 76. He passed away at Princeton Hospital in New Jersey, USA, due to an abdominal aortic aneurysm. Einstein had refused surgery, saying, \"I want to go when I want. It is tasteless to prolong life artificially. I have done my share; it is time to go. I will do it elegantly.\"\n\nEinstein's death marked the end of an era in physics and science. He was one of the most influential scientists of the 20th century, best known for his theories of special and general relativity, as well as his contributions to quantum mechanics and other areas of physics."
+            }
+          ],
+          "stop_reason": "end_turn",
+          "stop_sequence": null,
+          "usage": {
+            "input_tokens": 12,
+            "output_tokens": 150
+          }
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/anthropic/refresh_docs?endpoint=completions",
+        "provider": "Anthropic"
+      }
+    },
+    "created_at": "2024-10-22T04:06:38.051Z",
+    "updated_at": "2024-10-22T04:06:38.051Z"
+  },
+  {
+    "id": 3,
+    "method": "GET",
+    "url": "http://localhost:3000/providers/gemini/models",
+    "params": {},
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "models": [
+        "chat-bison-001",
+        "text-bison-001",
+        "embedding-gecko-001",
+        "gemini-1.0-pro-latest",
+        "gemini-1.0-pro",
+        "gemini-pro",
+        "gemini-1.0-pro-001",
+        "gemini-1.0-pro-vision-latest",
+        "gemini-pro-vision",
+        "gemini-1.5-pro-latest",
+        "gemini-1.5-pro-001",
+        "gemini-1.5-pro-002",
+        "gemini-1.5-pro",
+        "gemini-1.5-pro-exp-0801",
+        "gemini-1.5-pro-exp-0827",
+        "gemini-1.5-flash-latest",
+        "gemini-1.5-flash-001",
+        "gemini-1.5-flash-001-tuning",
+        "gemini-1.5-flash",
+        "gemini-1.5-flash-exp-0827",
+        "gemini-1.5-flash-002",
+        "gemini-1.5-flash-8b",
+        "gemini-1.5-flash-8b-001",
+        "gemini-1.5-flash-8b-latest",
+        "gemini-1.5-flash-8b-exp-0827",
+        "gemini-1.5-flash-8b-exp-0924",
+        "embedding-001",
+        "text-embedding-004",
+        "aqa"
+      ],
+      "proxy": {
+        "status": 200,
+        "original_body": {
+          "models": [
+            {
+              "name": "models/chat-bison-001",
+              "version": "001",
+              "displayName": "PaLM 2 Chat (Legacy)",
+              "description": "A legacy text-only model optimized for chat conversations",
+              "inputTokenLimit": 4096,
+              "outputTokenLimit": 1024,
+              "supportedGenerationMethods": [
+                "generateMessage",
+                "countMessageTokens"
+              ],
+              "temperature": 0.25,
+              "topP": 0.95,
+              "topK": 40
+            },
+            {
+              "name": "models/text-bison-001",
+              "version": "001",
+              "displayName": "PaLM 2 (Legacy)",
+              "description": "A legacy model that understands text and generates text as an output",
+              "inputTokenLimit": 8196,
+              "outputTokenLimit": 1024,
+              "supportedGenerationMethods": [
+                "generateText",
+                "countTextTokens",
+                "createTunedTextModel"
+              ],
+              "temperature": 0.7,
+              "topP": 0.95,
+              "topK": 40
+            },
+            {
+              "name": "models/embedding-gecko-001",
+              "version": "001",
+              "displayName": "Embedding Gecko",
+              "description": "Obtain a distributed representation of a text.",
+              "inputTokenLimit": 1024,
+              "outputTokenLimit": 1,
+              "supportedGenerationMethods": [
+                "embedText",
+                "countTextTokens"
+              ]
+            },
+            {
+              "name": "models/gemini-1.0-pro-latest",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro Latest",
+              "description": "The best model for scaling across a wide range of tasks. This is the latest model.",
+              "inputTokenLimit": 30720,
+              "outputTokenLimit": 2048,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 0.9,
+              "topP": 1
+            },
+            {
+              "name": "models/gemini-1.0-pro",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro",
+              "description": "The best model for scaling across a wide range of tasks",
+              "inputTokenLimit": 30720,
+              "outputTokenLimit": 2048,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 0.9,
+              "topP": 1
+            },
+            {
+              "name": "models/gemini-pro",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro",
+              "description": "The best model for scaling across a wide range of tasks",
+              "inputTokenLimit": 30720,
+              "outputTokenLimit": 2048,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 0.9,
+              "topP": 1
+            },
+            {
+              "name": "models/gemini-1.0-pro-001",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro 001 (Tuning)",
+              "description": "The best model for scaling across a wide range of tasks. This is a stable model that supports tuning.",
+              "inputTokenLimit": 30720,
+              "outputTokenLimit": 2048,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createTunedModel"
+              ],
+              "temperature": 0.9,
+              "topP": 1
+            },
+            {
+              "name": "models/gemini-1.0-pro-vision-latest",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro Vision",
+              "description": "The best image understanding model to handle a broad range of applications",
+              "inputTokenLimit": 12288,
+              "outputTokenLimit": 4096,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 0.4,
+              "topP": 1,
+              "topK": 32
+            },
+            {
+              "name": "models/gemini-pro-vision",
+              "version": "001",
+              "displayName": "Gemini 1.0 Pro Vision",
+              "description": "The best image understanding model to handle a broad range of applications",
+              "inputTokenLimit": 12288,
+              "outputTokenLimit": 4096,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 0.4,
+              "topP": 1,
+              "topK": 32
+            },
+            {
+              "name": "models/gemini-1.5-pro-latest",
+              "version": "001",
+              "displayName": "Gemini 1.5 Pro Latest",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-pro-001",
+              "version": "001",
+              "displayName": "Gemini 1.5 Pro 001",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createCachedContent"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-pro-002",
+              "version": "002",
+              "displayName": "Gemini 1.5 Pro 002",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createCachedContent"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-pro",
+              "version": "001",
+              "displayName": "Gemini 1.5 Pro",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-pro-exp-0801",
+              "version": "exp-0801",
+              "displayName": "Gemini 1.5 Pro Experimental 0801",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-pro-exp-0827",
+              "version": "exp-0827",
+              "displayName": "Gemini 1.5 Pro Experimental 0827",
+              "description": "Mid-size multimodal model that supports up to 2 million tokens",
+              "inputTokenLimit": 2000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-latest",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash Latest",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-001",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash 001",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createCachedContent"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-001-tuning",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash 001 Tuning",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 16384,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createTunedModel"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-exp-0827",
+              "version": "exp-0827",
+              "displayName": "Gemini 1.5 Flash Experimental 0827",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 64,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-002",
+              "version": "002",
+              "displayName": "Gemini 1.5 Flash 002",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens",
+                "createCachedContent"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-8b",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash-8B",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "createCachedContent",
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-8b-001",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash-8B 001",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "createCachedContent",
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-8b-latest",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash-8B Latest",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "createCachedContent",
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-8b-exp-0827",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash 8B Experimental 0827",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/gemini-1.5-flash-8b-exp-0924",
+              "version": "001",
+              "displayName": "Gemini 1.5 Flash 8B Experimental 0924",
+              "description": "Fast and versatile multimodal model for scaling across diverse tasks",
+              "inputTokenLimit": 1000000,
+              "outputTokenLimit": 8192,
+              "supportedGenerationMethods": [
+                "generateContent",
+                "countTokens"
+              ],
+              "temperature": 1,
+              "topP": 0.95,
+              "topK": 40,
+              "maxTemperature": 2
+            },
+            {
+              "name": "models/embedding-001",
+              "version": "001",
+              "displayName": "Embedding 001",
+              "description": "Obtain a distributed representation of a text.",
+              "inputTokenLimit": 2048,
+              "outputTokenLimit": 1,
+              "supportedGenerationMethods": [
+                "embedContent"
+              ]
+            },
+            {
+              "name": "models/text-embedding-004",
+              "version": "004",
+              "displayName": "Text Embedding 004",
+              "description": "Obtain a distributed representation of a text.",
+              "inputTokenLimit": 2048,
+              "outputTokenLimit": 1,
+              "supportedGenerationMethods": [
+                "embedContent"
+              ]
+            },
+            {
+              "name": "models/aqa",
+              "version": "001",
+              "displayName": "Model that performs Attributed Question Answering.",
+              "description": "Model trained to return answers to questions that are grounded in provided sources, along with estimating answerable probability.",
+              "inputTokenLimit": 7168,
+              "outputTokenLimit": 1024,
+              "supportedGenerationMethods": [
+                "generateAnswer"
+              ],
+              "temperature": 0.2,
+              "topP": 1,
+              "topK": 40
+            }
+          ]
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/gemini/refresh_docs?endpoint=models",
+        "provider": "Gemini"
+      }
+    },
+    "created_at": "2024-10-22T04:06:49.489Z",
+    "updated_at": "2024-10-22T04:06:49.489Z"
+  },
+  {
+    "id": 4,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/gemini/ask",
+    "params": {
+      "question": "When Albert Einstein died.",
+      "profile": null,
+      "model": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": null,
+      "answer": "Albert Einstein died on **April 18, 1955**. \n",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "Albert Einstein died on **April 18, 1955**. \n"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0,
+              "safetyRatings": [
+                {
+                  "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HATE_SPEECH",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HARASSMENT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                  "probability": "NEGLIGIBLE"
+                }
+              ]
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 6,
+            "candidatesTokenCount": 16,
+            "totalTokenCount": 22
+          },
+          "modelVersion": "gemini-1.5-flash-latest"
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/gemini/refresh_docs?endpoint=ask",
+        "provider": "Gemini"
+      }
+    },
+    "created_at": "2024-10-22T04:06:53.263Z",
+    "updated_at": "2024-10-22T04:06:53.263Z"
+  },
+  {
+    "id": 5,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/gemini/completions",
+    "params": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "When Albert Einstein died."
+        }
+      ],
+      "profile": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": null,
+      "message": {
+        "role": "assistant",
+        "content": "Albert Einstein died on **April 18, 1955**, at the age of 76. \n"
+      },
+      "model": "gemini-1.5-flash-latest",
+      "finish_reason": "stop",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "Albert Einstein died on **April 18, 1955**, at the age of 76. \n"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0,
+              "safetyRatings": [
+                {
+                  "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HATE_SPEECH",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_HARASSMENT",
+                  "probability": "NEGLIGIBLE"
+                },
+                {
+                  "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                  "probability": "NEGLIGIBLE"
+                }
+              ]
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 6,
+            "candidatesTokenCount": 24,
+            "totalTokenCount": 30
+          },
+          "modelVersion": "gemini-1.5-flash-latest"
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/gemini/refresh_docs?endpoint=completions",
+        "provider": "Gemini"
+      }
+    },
+    "created_at": "2024-10-22T04:06:57.651Z",
+    "updated_at": "2024-10-22T04:06:57.651Z"
+  },
+  {
+    "id": 6,
+    "method": "GET",
+    "url": "http://localhost:3000/providers/open_ai/models",
+    "params": {},
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "models": [
+        "gpt-4-turbo",
+        "gpt-4-turbo-2024-04-09",
+        "tts-1",
+        "tts-1-1106",
+        "chatgpt-4o-latest",
+        "dall-e-2",
+        "whisper-1",
+        "gpt-4-turbo-preview",
+        "gpt-3.5-turbo-instruct",
+        "gpt-4-0125-preview",
+        "gpt-3.5-turbo-0125",
+        "gpt-4o-2024-08-06",
+        "gpt-3.5-turbo",
+        "gpt-4o",
+        "babbage-002",
+        "davinci-002",
+        "gpt-4o-realtime-preview-2024-10-01",
+        "dall-e-3",
+        "gpt-4o-realtime-preview",
+        "gpt-4o-mini",
+        "gpt-4o-2024-05-13",
+        "gpt-4o-mini-2024-07-18",
+        "gpt-4o-audio-preview-2024-10-01",
+        "gpt-4o-audio-preview",
+        "tts-1-hd",
+        "tts-1-hd-1106",
+        "gpt-4-1106-preview",
+        "text-embedding-ada-002",
+        "gpt-3.5-turbo-16k",
+        "text-embedding-3-small",
+        "text-embedding-3-large",
+        "gpt-3.5-turbo-1106",
+        "gpt-4-0613",
+        "gpt-4",
+        "gpt-3.5-turbo-instruct-0914"
+      ],
+      "proxy": {
+        "status": 200,
+        "original_body": {
+          "object": "list",
+          "data": [
+            {
+              "id": "gpt-4-turbo",
+              "object": "model",
+              "created": 1712361441,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4-turbo-2024-04-09",
+              "object": "model",
+              "created": 1712601677,
+              "owned_by": "system"
+            },
+            {
+              "id": "tts-1",
+              "object": "model",
+              "created": 1681940951,
+              "owned_by": "openai-internal"
+            },
+            {
+              "id": "tts-1-1106",
+              "object": "model",
+              "created": 1699053241,
+              "owned_by": "system"
+            },
+            {
+              "id": "chatgpt-4o-latest",
+              "object": "model",
+              "created": 1723515131,
+              "owned_by": "system"
+            },
+            {
+              "id": "dall-e-2",
+              "object": "model",
+              "created": 1698798177,
+              "owned_by": "system"
+            },
+            {
+              "id": "whisper-1",
+              "object": "model",
+              "created": 1677532384,
+              "owned_by": "openai-internal"
+            },
+            {
+              "id": "gpt-4-turbo-preview",
+              "object": "model",
+              "created": 1706037777,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-3.5-turbo-instruct",
+              "object": "model",
+              "created": 1692901427,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4-0125-preview",
+              "object": "model",
+              "created": 1706037612,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-3.5-turbo-0125",
+              "object": "model",
+              "created": 1706048358,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-2024-08-06",
+              "object": "model",
+              "created": 1722814719,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-3.5-turbo",
+              "object": "model",
+              "created": 1677610602,
+              "owned_by": "openai"
+            },
+            {
+              "id": "gpt-4o",
+              "object": "model",
+              "created": 1715367049,
+              "owned_by": "system"
+            },
+            {
+              "id": "babbage-002",
+              "object": "model",
+              "created": 1692634615,
+              "owned_by": "system"
+            },
+            {
+              "id": "davinci-002",
+              "object": "model",
+              "created": 1692634301,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-realtime-preview-2024-10-01",
+              "object": "model",
+              "created": 1727131766,
+              "owned_by": "system"
+            },
+            {
+              "id": "dall-e-3",
+              "object": "model",
+              "created": 1698785189,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-realtime-preview",
+              "object": "model",
+              "created": 1727659998,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-mini",
+              "object": "model",
+              "created": 1721172741,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-2024-05-13",
+              "object": "model",
+              "created": 1715368132,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-mini-2024-07-18",
+              "object": "model",
+              "created": 1721172717,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-audio-preview-2024-10-01",
+              "object": "model",
+              "created": 1727389042,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4o-audio-preview",
+              "object": "model",
+              "created": 1727460443,
+              "owned_by": "system"
+            },
+            {
+              "id": "tts-1-hd",
+              "object": "model",
+              "created": 1699046015,
+              "owned_by": "system"
+            },
+            {
+              "id": "tts-1-hd-1106",
+              "object": "model",
+              "created": 1699053533,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4-1106-preview",
+              "object": "model",
+              "created": 1698957206,
+              "owned_by": "system"
+            },
+            {
+              "id": "text-embedding-ada-002",
+              "object": "model",
+              "created": 1671217299,
+              "owned_by": "openai-internal"
+            },
+            {
+              "id": "gpt-3.5-turbo-16k",
+              "object": "model",
+              "created": 1683758102,
+              "owned_by": "openai-internal"
+            },
+            {
+              "id": "text-embedding-3-small",
+              "object": "model",
+              "created": 1705948997,
+              "owned_by": "system"
+            },
+            {
+              "id": "text-embedding-3-large",
+              "object": "model",
+              "created": 1705953180,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-3.5-turbo-1106",
+              "object": "model",
+              "created": 1698959748,
+              "owned_by": "system"
+            },
+            {
+              "id": "gpt-4-0613",
+              "object": "model",
+              "created": 1686588896,
+              "owned_by": "openai"
+            },
+            {
+              "id": "gpt-4",
+              "object": "model",
+              "created": 1687882411,
+              "owned_by": "openai"
+            },
+            {
+              "id": "gpt-3.5-turbo-instruct-0914",
+              "object": "model",
+              "created": 1694122472,
+              "owned_by": "system"
+            }
+          ]
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/open_ai/refresh_docs?endpoint=models",
+        "provider": "OpenAI"
+      }
+    },
+    "created_at": "2024-10-22T04:07:05.565Z",
+    "updated_at": "2024-10-22T04:07:05.565Z"
+  },
+  {
+    "id": 7,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/open_ai/ask",
+    "params": {
+      "question": "When Albert Einstein died.",
+      "profile": null,
+      "model": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": "chatcmpl-AL0Si8llQ8cSOAxGtlBuXHFJi3j9v",
+      "answer": "Albert Einstein passed away on April 18, 1955, at the age of 76 in Princeton, New Jersey, United States.",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "chatcmpl-AL0Si8llQ8cSOAxGtlBuXHFJi3j9v",
+          "object": "chat.completion",
+          "created": 1729570028,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Albert Einstein passed away on April 18, 1955, at the age of 76 in Princeton, New Jersey, United States.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 12,
+            "completion_tokens": 28,
+            "total_tokens": 40,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/open_ai/refresh_docs?endpoint=ask",
+        "provider": "OpenAI"
+      }
+    },
+    "created_at": "2024-10-22T04:07:09.251Z",
+    "updated_at": "2024-10-22T04:07:09.251Z"
+  },
+  {
+    "id": 8,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/open_ai/completions",
+    "params": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "When Albert Einstein died."
+        }
+      ],
+      "profile": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": "chatcmpl-AL0SlldKoTmWB3ocOco3gbQn5v9MB",
+      "message": {
+        "role": "assistant",
+        "content": "Albert Einstein passed away on April 18, 1955 at the age of 76 in Princeton, New Jersey, United States.",
+        "refusal": null
+      },
+      "model": "gpt-3.5-turbo",
+      "finish_reason": "stop",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "chatcmpl-AL0SlldKoTmWB3ocOco3gbQn5v9MB",
+          "object": "chat.completion",
+          "created": 1729570031,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Albert Einstein passed away on April 18, 1955 at the age of 76 in Princeton, New Jersey, United States.",
+                "refusal": null
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 12,
+            "completion_tokens": 27,
+            "total_tokens": 39,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            }
+          },
+          "system_fingerprint": null
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/open_ai/refresh_docs?endpoint=completions",
+        "provider": "OpenAI"
+      }
+    },
+    "created_at": "2024-10-22T04:07:12.428Z",
+    "updated_at": "2024-10-22T04:07:12.428Z"
+  },
+  {
+    "id": 9,
+    "method": "GET",
+    "url": "http://localhost:3000/providers/groq/models",
+    "params": {},
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "models": [
+        "gemma2-9b-it",
+        "llama3-groq-70b-8192-tool-use-preview",
+        "llama-guard-3-8b",
+        "whisper-large-v3",
+        "llava-v1.5-7b-4096-preview",
+        "whisper-large-v3-turbo",
+        "llama-3.2-90b-vision-preview",
+        "llama-3.2-11b-vision-preview",
+        "llama3-8b-8192",
+        "llama3-groq-8b-8192-tool-use-preview",
+        "llama-3.2-3b-preview",
+        "llama3-70b-8192",
+        "llama-3.1-8b-instant",
+        "llama-3.2-90b-text-preview",
+        "llama-3.2-11b-text-preview",
+        "gemma-7b-it",
+        "distil-whisper-large-v3-en",
+        "llama-3.2-1b-preview",
+        "mixtral-8x7b-32768",
+        "llama-3.1-70b-versatile"
+      ],
+      "proxy": {
+        "status": 200,
+        "original_body": {
+          "object": "list",
+          "data": [
+            {
+              "id": "gemma2-9b-it",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Google",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama3-groq-70b-8192-tool-use-preview",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Groq",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama-guard-3-8b",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "whisper-large-v3",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "OpenAI",
+              "active": true,
+              "context_window": 448,
+              "public_apps": null
+            },
+            {
+              "id": "llava-v1.5-7b-4096-preview",
+              "object": "model",
+              "created": 1725402373,
+              "owned_by": "Other",
+              "active": true,
+              "context_window": 4096,
+              "public_apps": null
+            },
+            {
+              "id": "whisper-large-v3-turbo",
+              "object": "model",
+              "created": 1728413088,
+              "owned_by": "OpenAI",
+              "active": true,
+              "context_window": 448,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-90b-vision-preview",
+              "object": "model",
+              "created": 1727226914,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-11b-vision-preview",
+              "object": "model",
+              "created": 1727226869,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama3-8b-8192",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama3-groq-8b-8192-tool-use-preview",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Groq",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-3b-preview",
+              "object": "model",
+              "created": 1727224290,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama3-70b-8192",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.1-8b-instant",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 131072,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-90b-text-preview",
+              "object": "model",
+              "created": 1727285716,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-11b-text-preview",
+              "object": "model",
+              "created": 1727283005,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "gemma-7b-it",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Google",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "distil-whisper-large-v3-en",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Hugging Face",
+              "active": true,
+              "context_window": 448,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.2-1b-preview",
+              "object": "model",
+              "created": 1727224268,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 8192,
+              "public_apps": null
+            },
+            {
+              "id": "mixtral-8x7b-32768",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Mistral AI",
+              "active": true,
+              "context_window": 32768,
+              "public_apps": null
+            },
+            {
+              "id": "llama-3.1-70b-versatile",
+              "object": "model",
+              "created": 1693721698,
+              "owned_by": "Meta",
+              "active": true,
+              "context_window": 32768,
+              "public_apps": null
+            }
+          ]
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/groq/refresh_docs?endpoint=models",
+        "provider": "Groq"
+      }
+    },
+    "created_at": "2024-10-22T04:07:20.601Z",
+    "updated_at": "2024-10-22T04:07:20.601Z"
+  },
+  {
+    "id": 10,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/groq/ask",
+    "params": {
+      "question": "When Albert Einstein died.",
+      "profile": null,
+      "model": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": "chatcmpl-89a4d208-5eb6-4598-8676-55c9e630ea58",
+      "answer": "Albert Einstein died on April 18, 1955, in Princetown, New Jersey, USA. He was 76 years old at the time of his death.",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "chatcmpl-89a4d208-5eb6-4598-8676-55c9e630ea58",
+          "object": "chat.completion",
+          "created": 1729570043,
+          "model": "llama3-8b-8192",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Albert Einstein died on April 18, 1955, in Princetown, New Jersey, USA. He was 76 years old at the time of his death."
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "queue_time": 0.114661431,
+            "prompt_tokens": 15,
+            "prompt_time": 0.002558947,
+            "completion_tokens": 37,
+            "completion_time": 0.030833333,
+            "total_tokens": 52,
+            "total_time": 0.03339228
+          },
+          "system_fingerprint": "fp_af05557ca2",
+          "x_groq": {
+            "id": "req_01jas6gx32fqx8mqah978ggf7y"
+          }
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/groq/refresh_docs?endpoint=ask",
+        "provider": "Groq"
+      }
+    },
+    "created_at": "2024-10-22T04:07:23.280Z",
+    "updated_at": "2024-10-22T04:07:23.280Z"
+  },
+  {
+    "id": 11,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/groq/completions",
+    "params": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "When Albert Einstein died."
+        }
+      ],
+      "profile": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": "chatcmpl-daa6beeb-d83d-4e77-b261-509996555d24",
+      "message": {
+        "role": "assistant",
+        "content": "Albert Einstein died on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death."
+      },
+      "model": "llama3-8b-8192",
+      "finish_reason": "stop",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "id": "chatcmpl-daa6beeb-d83d-4e77-b261-509996555d24",
+          "object": "chat.completion",
+          "created": 1729570046,
+          "model": "llama3-8b-8192",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Albert Einstein died on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death."
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "queue_time": 0.016231985,
+            "prompt_tokens": 15,
+            "prompt_time": 0.001698655,
+            "completion_tokens": 34,
+            "completion_time": 0.028333333,
+            "total_tokens": 49,
+            "total_time": 0.030031988
+          },
+          "system_fingerprint": "fp_af05557ca2",
+          "x_groq": {
+            "id": "req_01jas6h088fhebp6fxpkqym2pw"
+          }
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/groq/refresh_docs?endpoint=completions",
+        "provider": "Groq"
+      }
+    },
+    "created_at": "2024-10-22T04:07:26.453Z",
+    "updated_at": "2024-10-22T04:07:26.453Z"
+  },
+  {
+    "id": 12,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/ollama/ask",
+    "params": {
+      "question": "When Albert Einstein died.",
+      "profile": null,
+      "model": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": null,
+      "answer": "Albert Einstein passed away on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death.",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "model": "llama3.2",
+          "created_at": "2024-10-22T04:07:36.225656Z",
+          "message": {
+            "role": "assistant",
+            "content": "Albert Einstein passed away on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death."
+          },
+          "done_reason": "stop",
+          "done": true,
+          "total_duration": 2087499250,
+          "load_duration": 1586242250,
+          "prompt_eval_count": 30,
+          "prompt_eval_duration": 70198000,
+          "eval_count": 35,
+          "eval_duration": 429871000
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/ollama/refresh_docs?endpoint=ask",
+        "provider": "Ollama"
+      }
+    },
+    "created_at": "2024-10-22T04:07:36.234Z",
+    "updated_at": "2024-10-22T04:07:36.234Z"
+  },
+  {
+    "id": 13,
+    "method": "POST",
+    "url": "http://localhost:3000/providers/ollama/completions",
+    "params": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "When Albert Einstein died."
+        }
+      ],
+      "profile": null,
+      "options": null
+    },
+    "headers": {},
+    "payload": {},
+    "status": 200,
+    "body": {
+      "ref_id": null,
+      "message": {
+        "role": "assistant",
+        "content": "Albert Einstein passed away on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death."
+      },
+      "model": "llama3.2",
+      "finish_reason": "stop",
+      "proxy": {
+        "profile": null,
+        "status": 200,
+        "original_body": {
+          "model": "llama3.2",
+          "created_at": "2024-10-22T04:07:38.714733Z",
+          "message": {
+            "role": "assistant",
+            "content": "Albert Einstein passed away on April 18, 1955, in Princeton, New Jersey, USA. He was 76 years old at the time of his death."
+          },
+          "done_reason": "stop",
+          "done": true,
+          "total_duration": 602021375,
+          "load_duration": 26852250,
+          "prompt_eval_count": 30,
+          "prompt_eval_duration": 143943000,
+          "eval_count": 35,
+          "eval_duration": 429990000
+        }
+      },
+      "info": {
+        "app": "GptProxy",
+        "env": "development",
+        "current_url": "http://localhost:3000/providers/ollama/refresh_docs?endpoint=completions",
+        "provider": "Ollama"
+      }
+    },
+    "created_at": "2024-10-22T04:07:38.718Z",
+    "updated_at": "2024-10-22T04:07:38.718Z"
+  }
+]
