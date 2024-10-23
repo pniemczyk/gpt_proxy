@@ -226,6 +226,8 @@ GEM
     minitest-rails (7.1.1)
       minitest (~> 5.20)
       railties (>= 7.1.0, < 8.0.0)
+    mocha (2.5.0)
+      ruby2_keywords (>= 0.0.5)
     msgpack (1.7.3)
     nenv (0.3.0)
     net-http (0.4.1)
@@ -363,6 +365,7 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     securerandom (0.3.1)
     shellany (0.0.1)
     simple_form (5.3.1)
@@ -500,6 +503,7 @@ DEPENDENCIES
   lookbook
   minitest
   minitest-rails
+  mocha
   propshaft
   pry-rails
   puma (>= 5.0)

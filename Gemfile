@@ -87,4 +87,5 @@ group :test do
   gem 'factory_bot_rails' # If you're using FactoryBot for factories
   gem 'vcr'
   gem 'webmock'
+  gem 'mocha'
 end

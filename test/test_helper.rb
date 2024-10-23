@@ -6,6 +6,9 @@ require 'rails/test_help'
 require_relative 'support/vcr_setup'
 require 'pry-rails'
 
+require 'minitest/autorun'
+require 'mocha/minitest'
+
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
   include VcrTestHelper
