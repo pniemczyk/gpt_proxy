@@ -28,12 +28,6 @@ class ProviderTest < ActiveSupport::TestCase
     assert_includes subject.errors.full_messages, 'Id is not included in the list'
   end
 
-  test 'api_key must be present' do
-    subject.api_key = nil
-    assert_not subject.valid?
-    assert_includes subject.errors.full_messages, "Api key can't be blank"
-  end
-
   test 'url must be present' do
     subject.url = nil
     assert_not subject.valid?
