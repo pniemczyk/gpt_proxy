@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
+  before_action :require_auth_token!
 
   private
 
@@ -46,5 +47,14 @@ class ApplicationController < ActionController::Base
     return url_for(controller: model.model_name.route_key, action: :index) if action == :index
 
     url_for(model)
+  end
+
+  def require_auth_token!
+    return unless request.format.json?
+    return unless ENV['AUTHORIZATION_TOKEN'].present?
+    return if request.referer.present? && request.referer.include?(ENV['APP_HOST']) # Allow requests from the app
+    return if request.headers['Authorization']&.gsub('Bearer', '')&.strip == ENV['AUTHORIZATION_TOKEN']
+
+    render json: { error: 'Unauthorized' }, status: :unauthorized
   end
 end

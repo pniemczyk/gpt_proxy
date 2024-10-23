@@ -45,6 +45,7 @@ class CurlBoxComponent < ViewComponent::Base
   end
 
   def build_curl(url:, method: :get, params: {}, headers: {}, data: {})
+    headers.merge!({ 'Authorization' => 'Bearer <AUTHORIZATION_TOKEN>' }) if ENV['AUTHORIZATION_TOKEN'].present?
     [
       "curl --request #{method.to_s.upcase}",
       "--url #{url}#{params.present? ? "?#{params.to_query}" : ''}",

@@ -22,6 +22,7 @@ Bundler.require(*Rails.groups)
 
 module GptProxy
   class Application < Rails::Application
+    VERSION = '0.1.0'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
@@ -60,6 +61,12 @@ module GptProxy
         end
       end
     end
+
+    config.action_dispatch.default_headers.merge!(
+      'X-Powered-By'   => "Rails #{Rails::VERSION::STRING}",
+      'X-App-Name'     => 'GptProxy',
+      'X-App-Version'  => VERSION
+    )
 
     config.generators do |g|
       g.template_engine :slim

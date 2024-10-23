@@ -15,7 +15,9 @@ In development, we use `figaro`. You can set up your environment variables in `c
 * **FARADAY_PUBLISH:** 'false'
 * **ALLOW_ALL_CORS_ORIGIN:** 'false'
 * **PROVIDER_OLLAMA_URL:** 'http://localhost:11434'
+* **AUTHORIZATION_TOKEN:** 'your_token'
 
+To secure API you can uss `AUTHORIZATION_TOKEN` it will be used as a bearer token in the request header.
 You can replace each base url for each provider with your own by setting `PROVIDER_{PROVIDER_ID}_URL` environment variable.
 
 ### Database
@@ -56,6 +58,8 @@ keep in mind that you need to create production database first directory. You ca
 
 Please replace `RAILS_MASTER_KEY` and `SECRET_KEY_BASE` with your own keys.
 you can generate `SECRET_KEY_BASE` by `openssl rand -hex 32` and `RAILS_MASTER_KEY` by `bin/rails secret`
+
+You can add `AUTHORIZATION_TOKEN` to secure the API.
 
 ## Providers
 
