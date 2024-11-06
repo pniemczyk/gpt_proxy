@@ -42,3 +42,4 @@ db/*.sqlite3-*
 
 /.kamal/*
 /config/deploy.yml
+/config/*-deploy.yml
