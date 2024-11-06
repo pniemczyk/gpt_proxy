@@ -4,8 +4,6 @@
 # This Dockerfile is designed for production, not development. Use with Kamal or build'n'run by hand:
 # docker build -t gpt_proxy .
 # docker run -d -p 3000:80 \
-#  APP_HOST=<localhost:3000> \
-#  RAILS_ENV=production \
 # -e RAILS_MASTER_KEY=<value from config/master.key or bin/rails secret> \
 # -e SECRET_KEY_BASE=<value or openssl rand -hex 32> \
 # -e APP_HOST=localhost:3000 \

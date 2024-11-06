@@ -39,13 +39,26 @@ module GptProxy
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     host = ENV.fetch('APP_HOST')
+    port = ENV.fetch('PORT', 3000).to_i
     https_enabled = ActiveModel::Type::Boolean.new.cast(ENV['HTTPS'])
+    wildcard_hosts = ActiveModel::Type::Boolean.new.cast(ENV['WILDCARD_HOSTS'])
+    docker_container_hosts = ActiveModel::Type::Boolean.new.cast(ENV['DOCKER_CONTAINER_HOSTS'])
     host_url = "http#{https_enabled ? 's' : ''}://#{host}"
-    config.hosts << host
+
+    config.hosts = [
+      IPAddr.new('0.0.0.0/0'), # All IPv4 addresses.
+      IPAddr.new('::/0'),      # All IPv6 addresses.
+      'localhost',             # The localhost reserved domain.
+      ENV.fetch('APP_HOST'),   # The host set in the APP_HOST environment variable.
+      (/^[0-9a-f]{12}:#{port}$/ if docker_container_hosts) # Kamal's proxy container
+    ].compact
+    config.hosts << nil if wildcard_hosts
+
     config.action_mailer.default_url_options = { host: }
     config.action_mailer.asset_host = host_url
     Rails.application.routes.default_url_options[:host] = host_url
     config.force_ssl = https_enabled
+    config.assume_ssl = https_enabled
 
     # Enable CORS for all origins if needed
     if ActiveModel::Type::Boolean.new.cast(ENV['ALLOW_ALL_CORS_ORIGIN'])
@@ -56,8 +69,8 @@ module GptProxy
           resource(
             '*',
             headers: :any,
-            methods: [ :get, :patch, :put, :delete, :post, :options, :head ]
-            )
+            methods: [:get, :patch, :put, :delete, :post, :options, :head]
+          )
         end
       end
     end
